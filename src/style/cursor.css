@@ -1,0 +1,17 @@
+.inner-cursor{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    mix-blend-mode: overlay;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 100%;
+}
+
+.inner-cursor.grow{
+    width: 25px;
+    height: 25px;
+    /* transition: scale; */
+}
