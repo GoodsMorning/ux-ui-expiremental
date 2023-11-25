@@ -12,7 +12,7 @@ function Cursor() {
 			document. addEventListener('mousemove', (e) => handleMouseMove(e))
 		},[])
     const handleMouseMove = (e: globalThis.MouseEvent) => {
-        setMousePosition({left:e.pageX,top:e.pageY})
+        setMousePosition({left:e.clientX,top:e.clientY})
     }
     return ( 
         <div className="inner-cursor" style={{left:mousePosition.left, top:mousePosition.top}}/>
