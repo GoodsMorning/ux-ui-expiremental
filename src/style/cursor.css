@@ -1,13 +1,13 @@
 .inner-cursor{
     position: fixed;
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     transform: translate(-50%,-50%);
     background-color: #fff;
-    mix-blend-mode: overlay;
+    mix-blend-mode: difference;
     border-radius: 50%;
     pointer-events: none;
-    opacity: 100%;
+    opacity: 90%;
 }
 
 .inner-cursor.grow{
