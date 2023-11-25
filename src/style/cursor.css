@@ -8,6 +8,7 @@
     border-radius: 50%;
     pointer-events: none;
     opacity: 90%;
+    z-index: 2;
 }
 
 .inner-cursor.grow{

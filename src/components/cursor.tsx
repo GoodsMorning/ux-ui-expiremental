@@ -3,10 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import '../style/cursor.css'
 
-// type MouseEvent = React.MouseEvent<HTMLDivElement, globalThis.MouseEvent>;
-
 function Cursor() {
-    const [mousePosition, setMousePosition] = useState({left:0,top:0})
+    const [mousePosition, setMousePosition] = useState({left:-30,top:-30})
 
 		useEffect(() => {
 			document. addEventListener('mousemove', (e) => handleMouseMove(e))
