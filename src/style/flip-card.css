@@ -1,0 +1,10 @@
+.flip-card {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  backface-visibility: hidden;
+}
+
+.flip-card:hover {
+  transform: rotateY(180deg);
+}

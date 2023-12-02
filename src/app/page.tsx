@@ -1,43 +1,45 @@
-"use client";
+"use client"
 
-import Image from "next/image"
-import '../style/scroll.css'
-import { useEffect } from "react"
-import CardImgVdo from "@/components/card-img-vdo"
+import "../style/scroll.css";
+import "intersection-observer"
+import { useEffect } from "react";
+import CardImgVdo from "@/components/card-img-vdo";
+import FlipCard from "@/components/flip-card";
 
 export default function Home() {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in")
-          entry.target.classList.remove("fade-out")
-        } else {
-          entry.target.classList.add("fade-out")
-          entry.target.classList.remove("fade-in")
-        }
-      })
-    },
-    {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.75,
-    }
-  );
 
   useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+            entry.target.classList.remove("fade-out");
+          } else {
+            entry.target.classList.add("fade-out");
+            entry.target.classList.remove("fade-in");
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.75,
+      }
+    );
     const hiddenElements = document.querySelectorAll(".scroll-fade");
     hiddenElements.forEach((el) => {
       observer.observe(el);
-    });
-  });
+    })
+  })
   return (
     <>
       <section className="h-screen relative bg-black text-white uppercase text-8xl font-sans font-bold tracking-widest grid place-items-center">
         Cursor
       </section>
       <section className="h-screen relative bg-white">
-        <span className="absolute mx-auto left-0 right-0 top-40 text-7xl  text-center uppercase font-sans font-bold tracking-widest text-black">
+        <span className="scroll-fade absolute mx-auto left-0 right-0 top-40 text-7xl  text-center uppercase font-sans font-bold tracking-widest text-black">
           scroll card
         </span>
         <span className="scroll-fade opacity-0 transition-opacity duration-300 ease-in absolute m-auto left-0 right-0 top-0 bottom-0  h-64 w-[600px] p-8 rounded-lg font-medium text-white bg-red-400 shadow-md">
@@ -54,8 +56,16 @@ export default function Home() {
         <span className="scroll-fade absolute mx-auto left-0 right-0 top-40 text-7xl  text-center uppercase font-sans font-bold tracking-widest text-white truncate">
           Hover Img to vdo
         </span>
-        <span className="scroll-fade ">
-          <CardImgVdo/>
+        <span className="scroll-fade">
+          <CardImgVdo />
+        </span>
+      </section>
+      <section className="h-screen relative grid place-items-center pt-40 bg-white">
+        <span className="scroll-fade absolute mx-auto left-0 right-0 top-40 text-7xl  text-center uppercase font-sans font-bold tracking-widest text-black">
+          flip card
+        </span>
+        <span className="scroll-fade">
+          <FlipCard />
         </span>
       </section>
     </>
