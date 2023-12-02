@@ -6,9 +6,9 @@ function CardImgVdo() {
 
   const handleMouseOver = () => {
     setTimeout(() => {
-      setHover(!hover);
-    }, 500);
-  };
+      setHover(!hover)
+    }, 500)
+  }
   return (
     <>
       <Image
